@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli;700&display=swap');
+
+:root {
+    --empty-color: #F5F7F8;
+    --fill-color: #89CFF3;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: 'Muli', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+}
+
+.progress-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%;
+    margin-bottom: 20px;
+    width: 350px;
+    position: relative;
+}
+
+.progress-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background-color: var(--empty-color);
+    width: 100%;
+    height: 4px;
+    z-index: -1;
+}
+
+.progress {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    background-color: var(--fill-color);
+    width: 50%;
+    height: 4px;
+    transition: .4s ease;
+    z-index: -1;
+}
+
+.circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--empty-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    position: relative;
+    border: 2px solid var(--fill-color);
+    color: #F875AA;
+}
+
+.circle.active {
+    background-color: var(--fill-color);
+    color: #fff;
+}
+
+.btn {
+    background-color: var(--fill-color);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    margin: 10px;
+    transition: .3s ease;
+}
+
+.btn:active {
+    transform: scale(1.1);
+}
+
+.btn.disabled {
+    cursor: not-allowed;
+    background-color: var(--empty-color);
+    color: var(--fill-color);
+}
